@@ -24,7 +24,7 @@ function getFromlocalStorage(key) {
    return JSON.parse(result);
 }
 
-const justification = getFromlocalStorage('@formJustification').justification;
+let justification = getFromlocalStorage('@formJustification') ? getFromlocalStorage('@formJustification').justification : null;
 
 const initialValues = {
    reason: '',
