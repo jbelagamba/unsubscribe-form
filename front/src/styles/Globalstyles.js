@@ -21,3 +21,28 @@ export const Title = styled.h1 `
    margin-bottom: 50px;
    margin-top: 0;
 `;
+
+export const Form = styled.form `
+   margin-top: 40px;
+`;
+
+export const Button = styled.button`
+   width: ${props => `${props.width}px`};
+   height: 34px;
+   background: #FFFFFF;
+   border: 1px solid #C2C2C2;
+   box-sizing: border-box;
+   border-radius: 50px;
+   font-family: 'Roboto';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 13px;
+   line-height: 21px;
+   text-align: center;
+   color: #C2C2C2;
+   float: right;
+   &:focus {
+      outline: none;
+      border-color: #474747;
+   }
+`;
