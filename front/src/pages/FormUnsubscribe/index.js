@@ -21,10 +21,10 @@ const radioInputs = [
 
 function getFromlocalStorage(key) {
    let result = localStorage.getItem(key);
-   return JSON.parse(result).justification;
+   return JSON.parse(result);
 }
 
-const justification = getFromlocalStorage('@formJustification');
+const justification = getFromlocalStorage('@formJustification').justification;
 
 const initialValues = {
    reason: '',
