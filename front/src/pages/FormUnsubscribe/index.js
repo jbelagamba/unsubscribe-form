@@ -38,8 +38,8 @@ const PagesFormUnsubscribe = () => {
    function onChangeInputs(event) {
       const {name, value} = event.target;
       setValues({...values, [name]: value});
-      if(name == 'reason') {
-         setShowReasonObservation(value == 'outro' ? true : false);
+      if(name === 'reason') {
+         setShowReasonObservation(value === 'outro' ? true : false);
       }
    }
 
