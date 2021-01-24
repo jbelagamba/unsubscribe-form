@@ -30,8 +30,7 @@ const PagesFormJustification = () => {
          observation: event.target.elements.observation.checked
       }
 
-      saveOnlocalStorage('@formJustification', formJustificationData)
-      
+      saveOnlocalStorage('@formJustification', formJustificationData);
    }
 
    return (
