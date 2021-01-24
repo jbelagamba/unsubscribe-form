@@ -13,7 +13,7 @@ const InputText = (props) => {
    
 
    return (
-      <FieldGroup>
+      <FieldGroup bottom={props.bottom} top={props.top}>
          {props.label && (
             <Label className="fieldTitle" htmlFor={`input-text-${props.name}`} bold>
                {props.label}
@@ -28,6 +28,7 @@ const InputText = (props) => {
             onKeyUp={onKeyUp}
             value={props.value}
             onChange={props.onChange}
+            required={props.required}
          />
 
          {props.characterCounter && (

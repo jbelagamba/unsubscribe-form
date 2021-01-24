@@ -1,7 +1,8 @@
 import styled  from 'styled-components';
 
 export const FieldGroup = styled.div`
-   margin-bottom: 50px;
+   margin-bottom: ${props => `${props.bottom}px`};
+   margin-top: ${props => `${props.top}px`};
    ${props => props.inline &&`
      display: flex; 
      justify-content: flex-start;
@@ -59,4 +60,13 @@ export const InputTypeCheckbox = styled.input`
    cursor: pointer;
    margin-right: 5px;
    border: 1px solid #474747;
+`;
+
+export const InputTypeRadio = styled.input`
+   width: 13.21px;
+   height: 13.21px;
+   border: 0.880726px solid #A6A6A6;
+   box-sizing: border-box;
+   cursor: pointer;
+   margin: 0 5px 0 0;
 `;

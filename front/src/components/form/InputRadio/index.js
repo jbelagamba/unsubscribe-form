@@ -1,17 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useId } from "react-id-generator";
-import { FieldGroup, InputTypeCheckbox, Label } from '../FormStyles';
+import { FieldGroup, InputTypeRadio, Label } from '../FormStyles';
  
-const InputCheckbox = (props) => {
+const InputRadio = (props) => {
    const [htmlId] = useId();
 
    return (
       <FieldGroup bottom={props.bottom} top={props.top}>
-         <InputTypeCheckbox
-            type="checkbox"
+         <InputTypeRadio
+            type="radio"
             id={htmlId}
             name={props.name}
-            checked={props.checked}
+            value={props.value}
             onChange={props.onChange}
             required={props.required}
          />
@@ -23,4 +23,4 @@ const InputCheckbox = (props) => {
    );
 };
 
-export default InputCheckbox;
+export default InputRadio;

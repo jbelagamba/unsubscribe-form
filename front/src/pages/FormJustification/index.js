@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Title, Form, Button } from 'styles/Globalstyles';
+import { Container, PrimaryTitle, Form, Button } from 'styles/Globalstyles';
 
 import InputText from 'components/form/InputText';
 import InputCheckbox from 'components/form/InputCheckbox';
@@ -25,17 +25,18 @@ const PagesFormJustification = () => {
    function submitFormJustification(event) {
       event.preventDefault();
 
-      const formJustificationData ={
+      const formJustificationData = {
          justification: event.target.elements.justification.value,
          observation: event.target.elements.observation.checked
       }
 
-      saveOnlocalStorage('@formJustification', formJustificationData);
+      saveOnlocalStorage('@formJustification', formJustificationData);  
+
    }
 
    return (
       <Container>
-         <Title>Adicionar nova justificativa</Title>
+         <PrimaryTitle>Adicionar nova justificativa</PrimaryTitle>
          <Form onSubmit={submitFormJustification}>
             <InputText 
                name="justification"
@@ -43,16 +44,19 @@ const PagesFormJustification = () => {
                label="Justificativa"
                maxLength="150"
                characterCounter
-               onChange={onChangeInputs}>
+               onChange={onChangeInputs}
+               bottom="50"
+               required="required">
             </InputText>
 
             <InputCheckbox 
                name="observation"
                label="Permitir que o usuário informe uma observação."
-               onChange={onChangeInputs}>
+               onChange={onChangeInputs}
+               bottom="50">
             </InputCheckbox>
 
-            <Button  width="210">Salvar alterações</Button>
+            <Button width="210" primary>Salvar alterações</Button>
          </Form>
       </Container>
    );
