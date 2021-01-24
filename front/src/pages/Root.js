@@ -9,6 +9,7 @@ import {
 
 import PagesFormJustification from './FormJustification';
 import PagesFormUnsubscribe from './FormUnsubscribe';
+import PagesFormFeedback from './FormFeedback';
 
 const Root = () => {
    function getFromlocalStorage(key) {
@@ -16,8 +17,15 @@ const Root = () => {
       return result;
    }
 
-   let hasData = getFromlocalStorage('@formJustification');
-   let redirectToUrl = hasData ? '/unsubscribe' : null;
+   let hasDataJustification = getFromlocalStorage('@formJustification');
+   let hasDataUnsubscribe = getFromlocalStorage('@formUnsubscribe');
+   let redirectToUrl = null;
+
+   if(hasDataUnsubscribe) {
+      redirectToUrl = '/feedback';
+   } else if(hasDataJustification) {
+      redirectToUrl = '/unsubscribe';
+   }
 
    const redirectToRoute = <Redirect to={redirectToUrl} />;
    
@@ -26,6 +34,7 @@ const Root = () => {
          {redirectToRoute}
          <Switch>
             <Route path="/unsubscribe" component={PagesFormUnsubscribe}></Route>
+            <Route path="/feedback" component={PagesFormFeedback}></Route>
             <Route path="/" component={PagesFormJustification}></Route>
          </Switch>
       </Router>

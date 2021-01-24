@@ -19,21 +19,21 @@ const radioInputs = [
    {option: 'Outro', value: 'outro'}
 ];
 
+function getFromlocalStorage(key) {
+   let result = localStorage.getItem(key);
+   return JSON.parse(result).justification;
+}
+
+const justification = getFromlocalStorage('@formJustification');
+
 const initialValues = {
    reason: '',
-   reasonObservation: ''
+   reasonObservation: justification,
 };
 
 const PagesFormUnsubscribe = () => {
    const [values, setValues] = useState(initialValues);
    const [showReasonObservation, setShowReasonObservation] = useState(false);
-
-   function getFromlocalStorage(key) {
-      let result = localStorage.getItem(key);
-      return JSON.parse(result).justification;
-   }
-   
-   const justification = getFromlocalStorage('@formJustification');
 
    function onChangeInputs(event) {
       const {name, value} = event.target;
@@ -115,7 +115,7 @@ const PagesFormUnsubscribe = () => {
                         onChange={onChangeInputs}
                         bottom="40"
                         top="-25"
-                        value={justification}>
+                        value={values.reasonObservation}>
                      </InputText>
                   )}
 
