@@ -6,7 +6,7 @@ const InputCheckbox = (props) => {
    const [htmlId] = useId();
 
    return (
-      <FieldGroup bottom={props.bottom} top={props.top}>
+      <FieldGroup inline bottom={props.bottom} top={props.top}>
          <InputTypeCheckbox
             type="checkbox"
             id={htmlId}

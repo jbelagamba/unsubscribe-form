@@ -28,6 +28,13 @@ const PagesFormUnsubscribe = () => {
    const [values, setValues] = useState(initialValues);
    const [showReasonObservation, setShowReasonObservation] = useState(false);
 
+   function getFromlocalStorage(key) {
+      let result = localStorage.getItem(key);
+      return JSON.parse(result).justification;
+   }
+   
+   const justification = getFromlocalStorage('@formJustification');
+
    function onChangeInputs(event) {
       const {name, value} = event.target;
       setValues({...values, [name]: value});
@@ -107,7 +114,8 @@ const PagesFormUnsubscribe = () => {
                         characterCounter
                         onChange={onChangeInputs}
                         bottom="40"
-                        top="-25">
+                        top="-25"
+                        value={justification}>
                      </InputText>
                   )}
 
