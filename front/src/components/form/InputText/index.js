@@ -6,9 +6,9 @@ const InputText = (props) => {
    const characterLimit = props.maxLength;
    let [characterCounter, setCounter] = useState(0);
    
-   function onChange(ev) {
+   function onKeyUp(ev) {
       const {value} = ev.target;
-      setCounter(value.length);
+      setCounter(value.length);      
    }
    
 
@@ -25,7 +25,9 @@ const InputText = (props) => {
             id={`input-text-${props.name}`}
             placeholder={props.placeholder} 
             maxLength={props.maxLength}
-            onChange={onChange}
+            onKeyUp={onKeyUp}
+            value={props.value}
+            onChange={props.onChange}
          />
 
          {props.characterCounter && (
